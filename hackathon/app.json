@@ -25,6 +25,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+        [
+            "expo-image-picker",
+            {
+                "photosPermission": "Give us permissions to see your photos :D"
+            }
+        ]
+    ]
   }
 }

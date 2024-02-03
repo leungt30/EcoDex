@@ -26,13 +26,13 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": {
+    "plugins": [
         [
             "expo-image-picker",
             {
                 "photosPermission": "Give us permissions to see your photos :D"
             }
         ]
-    },
+    ],
   }
 }

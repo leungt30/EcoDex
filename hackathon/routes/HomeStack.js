@@ -2,7 +2,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation'
 import Home from '../screens/Home'
 import Profile from '../screens/Profile'
-import PlantCollection from '../screens/PlantCollection'
+import Ecodex from '../screens/Ecodex'
 
 const screens = {
     Home: {
@@ -11,8 +11,8 @@ const screens = {
     Profile: {
         screen: Profile
     },
-    PlantCollection: {
-        screen: PlantCollection
+    Ecodex: {
+        screen: Ecodex 
     }
 }
 

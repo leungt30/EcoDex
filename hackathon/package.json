@@ -9,13 +9,14 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@google-cloud/vision": "^4.0.3",
     "axios": "^1.6.7",
     "expo": "~50.0.5",
+    "expo-file-system": "~16.0.5",
+    "expo-image-picker": "~14.7.1",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
-    "react-native": "0.73.2",
-    "expo-image-picker": "~14.7.1",
-    "expo-file-system": "~16.0.5"
+    "react-native": "0.73.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

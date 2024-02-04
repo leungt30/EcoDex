@@ -27,9 +27,6 @@ export default function Ecodex({navigation}) {
     fetchData();
   }, []);
 
-  // const pressHandler = (screen,arg) => {
-  //   navigation.navigate(screen,arg);
-  // };
   return (
     
     <View style={styles.container}>

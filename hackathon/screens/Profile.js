@@ -66,8 +66,9 @@ export default function Profile() {
   
 
     <View style={styles.container}>
+      <View><Text style={styles.title}>Eco<Text style={styles.title2}>Dex</Text></Text></View>
       <View>
-        <Image style={{ height: 200, width: 200, borderRadius:90 }} source={{uri:"https://pm1.aminoapps.com/5706/1a0149f52a9607910f10be5d05c2452d0da19326_hq.jpg"}}></Image>
+        <Image style={{ height: 175, width: 175, borderRadius:90 }} source={{uri:"https://pm1.aminoapps.com/5706/1a0149f52a9607910f10be5d05c2452d0da19326_hq.jpg"}}></Image>
       </View>
       <Text style={styles.name}>🌲{data.name}🌲</Text>
       <Text>Points: {data.points}</Text>
@@ -103,6 +104,16 @@ const styles = StyleSheet.create({
   rank:{
     fontSize: 30,
     fontWeight: 'bold',
+  },
+  title:{
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: 'green',
+  },
+  title2:{
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#8A5c42',
   },
 
 

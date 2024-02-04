@@ -17,13 +17,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#39e75f",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: 25,
-    marginRight: 25,
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 12,
-    fontWeight: "bold",
+    marginLeft: 30,
+    marginRight: 30,
   },
   icon: {
     width: 40,

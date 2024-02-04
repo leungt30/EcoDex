@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View,Button } from 'react-native';
 import { EntityCol, db } from '../Firebase.js';
 import { doc, getDocs, query, setDoc, where,orderBy } from 'firebase/firestore';
-export default function Ecodex({navigation}) {
+import GridElement from "../components/GridElement.js"
 
+
+export default function Ecodex({navigation}) {
   const [entities, setEntities] = useState([])
   useEffect(() => {
     // Fetch data from the API
@@ -13,7 +15,7 @@ export default function Ecodex({navigation}) {
         const q = query(EntityCol, orderBy('name'));
         const querySnapshot = await getDocs(q);
         let localEcodex = [];
-        querySnapshot.forEach((doc) => localEcodex.push({id:doc.id,...doc.data()}));
+        querySnapshot.forEach((doc) => localEcodex.push({id:doc.id, ...doc.data()}));
         
         setEntities(localEcodex);
         
@@ -29,38 +31,21 @@ export default function Ecodex({navigation}) {
 
   return (
     
-    <View style={styles.container}>
-      <Text>Plant collection goes here</Text>
+    // <View style={styles.container}>
       <View style={styles.entities}>
-        {entities.map((entity, i) => <Button title={entity.name} key={i} onPress={() => navigation.navigate("EcodexEntity",entity)} />)}</View>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+        {entities.map((entity, i) => <GridElement caption={entity.name} onPress={() => navigation.navigate("EcodexEntity")} thumbnail={entity.thumbnail} key={i} />)}
+      </View>
+      // <StatusBar style="auto" />
+    // </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
   entities:{
     width: '100%',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gridGap: '20px',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
-  entityStyle:{
-    width: '100%',
-    backgroundColor: '#f4f4f4',
-    padding: '10px',
-    
-  }
   }
 );

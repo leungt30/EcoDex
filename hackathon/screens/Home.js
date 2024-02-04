@@ -15,7 +15,7 @@ export default function Home({ navigation }) {
         flex: 1,
         justifyContent: "flex-end",
         alignItems: "center",
-        marginBottom: 30,
+        marginBottom: 10,
       }}
     >
       <View style={styles.map}>

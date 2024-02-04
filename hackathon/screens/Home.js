@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { View, Text } from "react-native";
 import RoundButton from "../components/RoundButton.js";
 import styles from "../styles";
+import Map from "../components/map.js";
 
 export default function Home({ navigation }) {
   const pressHandler = (screen) => {
@@ -17,6 +18,9 @@ export default function Home({ navigation }) {
         marginBottom: 30,
       }}
     >
+      <View style={styles.map}>
+        <Map />
+      </View>
       <View style={styles.nav}>
         <RoundButton
           icon={require("../assets/ecodex.png")}

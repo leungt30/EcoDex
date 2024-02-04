@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { View, Text } from "react-native";
 import { Camera } from "expo-camera";
 import RoundButton from "./RoundButton";
-import { analyzeImage } from "./vision-api";
 import image_classification from "./huggingface-api";
 
 const CameraComponent = () => {
@@ -40,6 +39,7 @@ const CameraComponent = () => {
       <Camera
         style={{ flex: 1 }}
         type={Camera.Constants.Type.back}
+        ratio={'16:9'}
         ref={(ref) => setCameraRef(ref)}
       >
         <View

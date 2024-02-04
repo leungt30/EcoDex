@@ -12,11 +12,6 @@ export default function App() {
       }}
     >
       <Navigator style={styles.container} />
-      {/* <Text>Home</Text>
-  
-      
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" /> */}
     </View>
   );
 }

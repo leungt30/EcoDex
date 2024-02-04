@@ -14,8 +14,8 @@ export function SingleEntity(props) {
 
   useEffect(() => {
     async function fetchData() {
-        const playerRef = doc(db, "entity", id)
-        const docSnap = await getDoc(playerRef)
+        const enetityRef = doc(db, "entity", id)
+        const docSnap = await getDoc(enetityRef)
         if (docSnap.exists()) {
             // console.log(docSnap.data())
             setData(docSnap.data())

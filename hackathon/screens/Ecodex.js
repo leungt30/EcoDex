@@ -33,7 +33,7 @@ export default function Ecodex({navigation}) {
     
     // <View style={styles.container}>
       <View style={styles.entities}>
-        {entities.map((entity, i) => <GridElement caption={entity.name} onPress={() => navigation.navigate("EcodexEntity")} thumbnail={entity.thumbnail} key={i} />)}
+        {entities.map((entity, i) => <GridElement caption={entity.name} onPress={() => navigation.navigate("EcodexEntity", entity)} thumbnail={entity.thumbnail} key={i} />)}
       </View>
       // <StatusBar style="auto" />
     // </View>

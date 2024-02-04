@@ -47,3 +47,9 @@ export default function Ecodex({navigation}) {
       </View>
     );
   }
+
+//   const styles = StyleSheet.create({
+    
+//     }
+//   );
+  

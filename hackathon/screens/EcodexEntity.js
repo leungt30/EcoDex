@@ -35,9 +35,15 @@ export default function Ecodex({navigation}) {
 
     return (
       <View>
-        {pictureData.length!=0 && <Image style={{ height: 108, width: 192 }} source={{uri:"data:image/png;base64,"+pictureData[0]["photo"]}}/>}
+        {pictureData.length!=0 && pictureData.map((pic, index) => (
+        <Image
+          key={index}  // Ensure to provide a unique key for each item in the array
+          style={{ height: 108, width: 192 }}
+          source={{ uri: "data:image/png;base64," + pic.photo }}
+        />
+      ))}
         <Text>EcodexEntity page goes here: {navigation.getParam("id")}! {navigation.getParam("description")}</Text>
-        {pictureData.length!=0 && <Text>Picture Data: {"data:image/png;base64,"+pictureData[0]["photo"]}</Text>}
+        {/* {pictureData.length!=0 && <Text>Picture Data: {"data:image/png;base64,"+pictureData[0]["photo"]}</Text>} */}
       </View>
     );
   }

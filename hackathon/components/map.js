@@ -65,7 +65,8 @@ const Map = () => {
         toolbarEnabled: false,
         scrollEnabled: false,
         rotateEnabled: false,
-        showsCompass: false
+        showsCompass: false,
+        provider: 'google',
     }
 
     return (

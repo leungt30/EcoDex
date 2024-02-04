@@ -57,6 +57,19 @@ const Map = () => {
 
     console.log(currentLocation);
 
+    const latlng = (latitude, longitude) => {
+        return { latitude, longitude };
+    }
+    const coords = [
+        latlng(43.265983, -79.918289),
+        latlng(43.265836, -79.918508),
+        latlng(43.265370, -79.918563),
+        latlng(43.266033, -79.917135),
+        latlng(43.266392, -79.917271),
+        latlng(43.266168, -79.917213),
+        latlng(43.266244, -79.917418),
+    ]
+
     return (
         <View style={styles.container}>
             {initialRegion &&
@@ -67,13 +80,23 @@ const Map = () => {
                     ref={mapRef}
                     onMapReady={animate_point}
                 >
+                    {coords.map((coord, i) => {
+                        return <Marker key={i} coordinate={coord} >
+                            <View><Text style={{ fontSize: 30 }}>{Math.random() > 0.5 ? '🌱' : '🐾'}</Text></View>
+                        </Marker>
+                    })}
+                    <Marker coordinate={latlng(43.266797, -79.917537)}>
+                        <View>
+                            <Text style={{ fontSize: 30 }}>🎁</Text>
+                        </View>
+                    </Marker>
                     {currentLocation && <Marker
                         coordinate={{
                             latitude: currentLocation.latitude,
                             longitude: currentLocation.longitude,
                         }}>
                         <View>
-                            <Text style={{fontSize:60}}>
+                            <Text style={{ fontSize: 60 }}>
                                 🧍
                             </Text>
                         </View>

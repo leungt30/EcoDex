@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Image } from 'react-native';
 import { useEffect, useState } from 'react'
 import { db } from '../Firebase.js'
-import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { doc, getDoc} from 'firebase/firestore'
 
 
 export default function Profile() {
@@ -73,7 +73,7 @@ export default function Profile() {
       <Text>Points: {data.points}</Text>
       <Text>Rank: {pointsToRank(data.points)}</Text>
       <View style={{marginTop:50}}>
-        <Image style={{ height: 350, width:350 }} source={{uri:pointsToIcon(data.points)}}/>
+        {data.points!="loading" && <Image style={{ height: 350, width:350 }} source={{uri:pointsToIcon(data.points)}}/>}
       </View>
       
       <StatusBar style="auto" />

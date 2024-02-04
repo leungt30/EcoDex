@@ -14,6 +14,19 @@ export default async function image_classification(uri) {
         model: 'microsoft/resnet-50',
     });
 
+    let labels = '[';
+    classifications.forEach((classification, i) => {
+        labels += classification.label + (i === classifications.length - 1 ? '' : ', ');
+    });
+    labels += ']';
+    console.log('Labels: ', labels);
+
+    const result = await hf.textGeneration({
+        model: 'google/flan-t5-base',
+        inputs: `return the first plant or animal in the list ${labels} or false if there is none`
+    });
+    console.log('Result: ', result);
+
     // Return classification
-    return classifications[0].label;
+    return result.generated_text === 'false' ? false : result.generated_text;
 }

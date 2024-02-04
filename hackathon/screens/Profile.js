@@ -6,7 +6,7 @@ import { db } from '../Firebase.js'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
 
 export default function Profile() {
-  id = "tim"
+  id = "Tim"
   const [data, setData] = useState({
     "name": "loading",
     "points":"loading",

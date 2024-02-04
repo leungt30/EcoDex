@@ -1,16 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View, Button } from "react-native";
+import { CameraComponent } from "../components/CameraComponent";
 
 export default function Home({ navigation }) {
   const pressHandler = (screen) => {
-    navigation.navigate(screen)
-  }
+    navigation.navigate(screen);
+  };
 
-  return ( 
+  return (
     <View style={styles.container}>
       <Text>Home screen goes here</Text>
-      <Button title='Ecodex' onPress={() => pressHandler('Ecodex')}/>
-      <Button title='Profile' onPress={() => pressHandler('Profile')}/>
+      <Button title="Ecodex" onPress={() => pressHandler("Ecodex")} />
+      <Button title="Profile" onPress={() => pressHandler("Profile")} />
+      <Button title="Take Picture" onPress={() => pressHandler("Camera")} />
       <StatusBar style="auto" />
     </View>
   );
@@ -19,8 +21,8 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

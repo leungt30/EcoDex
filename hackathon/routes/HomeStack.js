@@ -5,6 +5,7 @@ import Profile from "../screens/Profile";
 import Ecodex from "../screens/Ecodex";
 import CameraComponent from "../components/CameraComponent";
 import EcodexEntity from "../screens/EcodexEntity";
+
 const screens = {
   Home: {
     screen: Home,

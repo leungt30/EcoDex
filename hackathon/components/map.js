@@ -55,6 +55,8 @@ const Map = () => {
         provider: 'google',
     }
 
+    console.log(currentLocation);
+
     return (
         <View style={styles.container}>
             {initialRegion &&

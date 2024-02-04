@@ -28,5 +28,5 @@ export default async function image_classification(uri) {
     console.log('Result: ', result);
 
     // Return classification
-    return result.generated_text === 'false' ? false : result.generated_text;
+    return result.generated_text;
 }

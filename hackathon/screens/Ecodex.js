@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,Button } from 'react-native';
 import { EntityCol, db } from '../Firebase.js';
 import { doc, getDocs, query, setDoc, where,orderBy } from 'firebase/firestore';
-export default function Ecodex() {
+export default function Ecodex({navigation}) {
 
   const [entities, setEntities] = useState([])
   useEffect(() => {
@@ -13,8 +13,10 @@ export default function Ecodex() {
         const q = query(EntityCol, orderBy('name'));
         const querySnapshot = await getDocs(q);
         let localEcodex = [];
-        querySnapshot.forEach((doc) => localEcodex.push(doc.data()));
+        querySnapshot.forEach((doc) => localEcodex.push({id:doc.id,...doc.data()}));
+        
         setEntities(localEcodex);
+        
         // console.log(localEcodex);
         // entities.map((entity, i) => {console.log(entity.name)});
       }
@@ -25,13 +27,15 @@ export default function Ecodex() {
     fetchData();
   }, []);
 
-
+  // const pressHandler = (screen,arg) => {
+  //   navigation.navigate(screen,arg);
+  // };
   return (
     
     <View style={styles.container}>
       <Text>Plant collection goes here</Text>
       <View style={styles.entities}>
-        {entities.map((entity, i) => <Text key={i} style={styles.entityStyle}>{entity.name}</Text>)}</View>
+        {entities.map((entity, i) => <Button title={entity.name} key={i} onPress={() => navigation.navigate("EcodexEntity",entity)} />)}</View>
       <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
     </View>

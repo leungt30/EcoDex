@@ -7,18 +7,15 @@ const Map = () => {
     const [currentLocation, setCurrentLocation] = useState(null);
     const [initialRegion, setInitialRegion] = useState(null);
 
-    // Keep reference of map
     const mapRef = useRef(null);
 
     // Update camera view to current location
     const animate_point = async () => {
-        if (!mapRef.current) {
-            return;
-        }
+        console.log('called');
         await mapRef.current.animateCamera({
             center: {
-                latitude: currentLocation ? currentLocation.latitude : null,
-                longitude: currentLocation ? currentLocation.longitude : null,
+                latitude: currentLocation.latitude,
+                longitude: currentLocation.longitude,
             },
             zoom: 18,
             pitch: 60,
@@ -36,7 +33,6 @@ const Map = () => {
 
             let location = await Location.getCurrentPositionAsync();
             setCurrentLocation(location.coords);
-            await animate_point();
 
             setInitialRegion({
                 latitude: location.coords.latitude,
@@ -47,15 +43,6 @@ const Map = () => {
         };
 
         getLocation();
-        animate_point();
-
-        const key = setInterval(async () => {
-            getLocation();
-        }, 2500);
-
-        return () => {
-            clearInterval(key);
-        }
     }, []);
 
     // Prevent user from moving the map
@@ -77,6 +64,7 @@ const Map = () => {
                     initialRegion={initialRegion}
                     {...mapConfig}
                     ref={mapRef}
+                    onMapLoaded={animate_point}
                 >
                     {currentLocation && <Marker
                         coordinate={{

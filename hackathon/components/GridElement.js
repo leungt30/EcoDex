@@ -12,8 +12,8 @@ const GridElement = ({ onPress, thumbnail, caption }) => {
 
 const styles = StyleSheet.create({
   element: {
-    width: 180,
-    height: 180,
+    width: 150,
+    height: 150,
     borderRadius: 10,
     backgroundColor: "#39e75f",
     justifyContent: "space-between",
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   thumbnail: {
-    width: 140,
-    height: 140,
+    width: 120,
+    height: 120,
   },
 });
 

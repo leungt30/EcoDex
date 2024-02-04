@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Image } from 'react-native';
 import { useEffect, useState } from 'react'
 import { db } from '../Firebase.js'
-import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { doc, getDoc} from 'firebase/firestore'
 
 
 export default function Profile() {
@@ -66,14 +66,15 @@ export default function Profile() {
   
 
     <View style={styles.container}>
+      <View><Text style={styles.title}>Eco<Text style={styles.title2}>Dex</Text></Text></View>
       <View>
-        <Image style={{ height: 200, width: 200, borderRadius:90 }} source={{uri:"https://pm1.aminoapps.com/5706/1a0149f52a9607910f10be5d05c2452d0da19326_hq.jpg"}}></Image>
+        <Image style={{ height: 175, width: 175, borderRadius:90 }} source={{uri:"https://pm1.aminoapps.com/5706/1a0149f52a9607910f10be5d05c2452d0da19326_hq.jpg"}}></Image>
       </View>
       <Text style={styles.name}>🌲{data.name}🌲</Text>
       <Text>Points: {data.points}</Text>
       <Text>Rank: {pointsToRank(data.points)}</Text>
       <View style={{marginTop:50}}>
-        <Image style={{ height: 350, width:350 }} source={{uri:pointsToIcon(data.points)}}/>
+        {data.points!="loading" && <Image style={{ height: 350, width:350 }} source={{uri:pointsToIcon(data.points)}}/>}
       </View>
       
       <StatusBar style="auto" />
@@ -103,6 +104,16 @@ const styles = StyleSheet.create({
   rank:{
     fontSize: 30,
     fontWeight: 'bold',
+  },
+  title:{
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: 'green',
+  },
+  title2:{
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#8A5c42',
   },
 
 

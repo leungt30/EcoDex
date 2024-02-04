@@ -8,7 +8,7 @@ import { addDoc } from "firebase/firestore";
 import * as FileSystem from "expo-file-system";
 import { manipulateAsync, SaveFormat } from "expo-image-manipulator";
 
-const CameraComponent = () => {
+const CameraComponent = ({ navigation }) => {
     const [hasPermission, setHasPermission] = useState(null);
     const [cameraRef, setCameraRef] = useState(null);
 
@@ -36,19 +36,46 @@ const CameraComponent = () => {
             const classifications = await image_classification(smaller_photo.uri);
             console.log(classifications)
 
-            const data = { photo: smaller_photo.base64, entity: classifications, date: new Date(), player: "Tim", location: {"accuracy": 35, "altitude": 92.43495559692383, "altitudeAccuracy": 16.5928897857666, "heading": -1, "latitude": 43.265587025590584, "longitude": -79.9183272503029, "speed": -1} };
+            let entRef;
+            try {
+                entRef = await addDoc(EntityCol, {
+                    thumbnail: smaller_photo.base64,
+                    first_person: "Tim",
+                    point: 10,
+                    description: `A ${classifications} is a ${classifications} is a type of a ${classifications} is a type of a`,
+                    name: classifications,
+                    type: 'animal',
+                });
+                console.log('Entity written with id: ', entRef.id);
+            }
+            catch (error) {
+                console.error('Error adding entity: ', error);
+                return;
+            }
+
+            const data = {
+                photo: smaller_photo.base64,
+                entity: entRef.id,
+                date: new Date(),
+                player: "Tim",
+                location: {
+                    "latitude": 43.265587025590584,
+                    "longitude": -79.9183272503029,
+                }
+            };
             console.log(data);
 
-            // if (classifications === 'false')
-            //   return;
-            
-            await addDoc(PictureCol, data)
-                .then((docRef) => {
-                    console.log('Document written with id: ', docRef.id);
-                })
-                .catch((err) => {
-                    console.error('Error adding document: ', err);
-                })
+            let docRef = null;
+            try {
+                docRef = await addDoc(PictureCol, data);
+                console.log('Document written with id: ', docRef.id);
+            }
+            catch (error) {
+                console.error('Error adding document: ', error);
+                return;
+            }
+
+            navigation.navigate("Ecodex");
         }
     };
 

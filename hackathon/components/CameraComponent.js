@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text } from "react-native";
 import { Camera } from "expo-camera";
+import RoundButton from "./RoundButton";
 
 const CameraComponent = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -42,26 +43,19 @@ const CameraComponent = () => {
             flexDirection: "row",
           }}
         ></View>
-        <TouchableOpacity
+        <View
           style={{
-            flex: 0.1,
-            alignSelf: "center",
+            flex: 1,
+            justifyContent: "flex-end",
             alignItems: "center",
-            marginBottom: 20,
+            marginBottom: 50,
           }}
-          onPress={takePicture}
         >
-          <View
-            style={{
-              border: "none",
-              borderRadius: 50,
-              backgroundColor: "green",
-              padding: 20,
-            }}
-          >
-            <Text style={{ color: "white" }}>capture</Text>
-          </View>
-        </TouchableOpacity>
+          <RoundButton
+            icon={require("../assets/takepic.png")}
+            onPress={takePicture}
+          />
+        </View>
       </Camera>
     </View>
   );

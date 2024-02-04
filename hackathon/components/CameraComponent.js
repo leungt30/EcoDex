@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { Camera } from "expo-camera";
 import RoundButton from "./RoundButton";
 import { analyzeImage } from "./vision-api";
+import image_classification from "./huggingface-api";
 
 const CameraComponent = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -22,15 +23,17 @@ const CameraComponent = () => {
     return <Text>No access to camera</Text>;
   }
 
-  const takePicture = async () => {
-    if (cameraRef) {
-      const photo = await cameraRef.takePictureAsync();
-      console.log("Photo taken:", photo);
-      // Handle the photo as needed (e.g., display it, save to database, etc.)
-      const labels = await analyzeImage(photo.uri);
-      console.log("Labels", labels);
-    }
-  };
+    const takePicture = async () => {
+        if (cameraRef) {
+            const photo = await cameraRef.takePictureAsync();
+            console.log("Photo taken:", photo);
+            // Handle the photo as needed (e.g., display it, save to database, etc.)
+            // const labels = await analyzeImage(photo.uri);
+            // console.log('Labels', labels);
+            const classifications = await image_classification(photo.uri);
+            console.log(classifications)
+        }
+    };
 
   return (
     <View style={{ flex: 1 }}>

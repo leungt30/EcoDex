@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Button } from "react-native";
 import { CameraComponent } from "../components/CameraComponent";
-import SingleEntity from '../components/singleEntity.js';
+import SingleEntity from "../components/singleEntity.js";
 export default function Home({ navigation }) {
   const pressHandler = (screen) => {
     navigation.navigate(screen);
@@ -10,8 +10,9 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>Home screen goes here</Text>
-      <Button title='Ecodex' onPress={() => pressHandler('Ecodex')}/>
-      <Button title='Profile' onPress={() => pressHandler('Profile')}/>
+      <Button title="Ecodex" onPress={() => pressHandler("Ecodex")} />
+      <Button title="Profile" onPress={() => pressHandler("Profile")} />
+      <Button title="Take Picture" onPress={() => pressHandler("Camera")} />
       <StatusBar style="auto" />
     </View>
   );

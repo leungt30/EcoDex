@@ -17,9 +17,10 @@ const Map = () => {
         }
         await mapRef.current.animateCamera({
             center: {
-                latitude: currentLocation.latitude,
-                longitude: currentLocation.longitude,
+                latitude: currentLocation ? currentLocation.latitude : null,
+                longitude: currentLocation ? currentLocation.longitude : null,
             },
+            zoom: 18,
             pitch: 60,
         });
     }
@@ -99,7 +100,6 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     map: {
-        width: '100%',
-        height: '100%',
+        flex: 1,
     }
 });

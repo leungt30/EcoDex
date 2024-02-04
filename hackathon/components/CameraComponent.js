@@ -3,6 +3,9 @@ import { View, Text } from "react-native";
 import { Camera } from "expo-camera";
 import RoundButton from "./RoundButton";
 import image_classification from "./huggingface-api";
+import { PictureCol, EntityCol } from "../Firebase";
+import { addDoc } from "firebase/firestore";
+import * as FileSystem from "expo-file-system";
 
 const CameraComponent = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -31,6 +34,25 @@ const CameraComponent = () => {
             // console.log('Labels', labels);
             const classifications = await image_classification(photo.uri);
             console.log(classifications)
+
+            const base64ImageData = await FileSystem.readAsStringAsync(photo.uri, {
+              encoding: FileSystem.EncodingType.Base64,
+            });
+
+            const data = {photo: base64ImageData, entity: classifications, date: new Date()};
+            console.log(data);
+
+            // if (classifications === 'false')
+            //   return;
+            
+            addDoc(PictureCol, data)
+              .then((docRef) => {
+                console.log('Document written with id: ', docRef.id);
+              })
+              .catch((err) => {
+                console.error('Error adding document: ', err);
+              })
+            
         }
     };
 

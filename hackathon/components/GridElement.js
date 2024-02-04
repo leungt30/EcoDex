@@ -4,7 +4,7 @@ import { TouchableOpacity, Image, StyleSheet, Text } from "react-native";
 const GridElement = ({ onPress, thumbnail, caption }) => {
   return (
     <TouchableOpacity style={styles.element} onPress={onPress}>
-      <Image source={thumbnail} style={styles.thumbnail} />
+      <Image source={{ uri: "data:image/png;base64," + thumbnail} } style={styles.thumbnail} />
       <Text style={styles.caption}>{caption}</Text>
     </TouchableOpacity>
   );
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   thumbnail: {
-    width: 100,
-    height: 100,
+    width: 140,
+    height: 140,
   },
 });
 

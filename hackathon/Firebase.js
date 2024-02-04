@@ -23,4 +23,5 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app) //regular firestore db
 export const EntityCol = collection(db, "entity")
 export const PlayerCol = collection(db, "player")
+// export const PictureCol = collection(db, "picture")
 // export const auth = getAuth(app)

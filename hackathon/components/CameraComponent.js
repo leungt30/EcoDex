@@ -37,7 +37,7 @@ const CameraComponent = () => {
             console.log(classifications)
 
             const data = { photo: smaller_photo.base64, entity: classifications, date: new Date(), player: "Tim", location: {"accuracy": 35, "altitude": 92.43495559692383, "altitudeAccuracy": 16.5928897857666, "heading": -1, "latitude": 43.265587025590584, "longitude": -79.9183272503029, "speed": -1} };
-            console.log(data);
+            console.log(data.entity);
 
             // if (classifications === 'false')
             //   return;

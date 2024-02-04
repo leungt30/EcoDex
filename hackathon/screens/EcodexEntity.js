@@ -41,6 +41,9 @@ export default function Ecodex({ navigation }) {
                 {navigation.getParam("name")}
             </Text>
             <Text style={styles.description}>
+                {"Type: "+ navigation.getParam("type")}
+            </Text>
+            <Text style={styles.description}>
                 {navigation.getParam("description")}
             </Text>
             {pictureData.length != 0 ?

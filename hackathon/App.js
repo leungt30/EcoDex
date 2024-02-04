@@ -1,13 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Navigator from './routes/HomeStack'
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View } from "react-native";
+import Navigator from "./routes/HomeStack";
+import styles from "./styles.js";
 
-
-import SingleEntity from './components/singleEntity.js';
+import SingleEntity from "./components/singleEntity.js";
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Navigator />
+    <View
+      style={{
+        flex: 1,
+      }}
+    >
+      <Navigator style={styles.container} />
       {/* <Text>Home</Text>
   
       
@@ -16,12 +20,3 @@ export default function App() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-  },
-});

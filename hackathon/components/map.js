@@ -65,7 +65,7 @@ const Map = () => {
                     initialRegion={initialRegion}
                     {...mapConfig}
                     ref={mapRef}
-                    onMapLoaded={animate_point}
+                    onMapReady={animate_point}
                 >
                     {currentLocation && <Marker
                         coordinate={{

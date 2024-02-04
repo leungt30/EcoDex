@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text } from "react-native";
 import { Camera } from "expo-camera";
 import RoundButton from "./RoundButton";
+import { analyzeImage } from "./vision-api";
 
 const CameraComponent = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -26,6 +27,8 @@ const CameraComponent = () => {
       const photo = await cameraRef.takePictureAsync();
       console.log("Photo taken:", photo);
       // Handle the photo as needed (e.g., display it, save to database, etc.)
+      const labels = await analyzeImage(photo.uri);
+      console.log("Labels", labels);
     }
   };
 

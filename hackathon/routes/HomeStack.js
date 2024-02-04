@@ -4,7 +4,7 @@ import Home from "../screens/Home";
 import Profile from "../screens/Profile";
 import Ecodex from "../screens/Ecodex";
 import CameraComponent from "../components/CameraComponent";
-
+import EcodexEntity from "../screens/EcodexEntity";
 const screens = {
   Home: {
     screen: Home,
@@ -17,6 +17,9 @@ const screens = {
   },
   Camera: {
     screen: CameraComponent,
+  },
+  EcodexEntity: {
+    screen: EcodexEntity,
   },
 };
 

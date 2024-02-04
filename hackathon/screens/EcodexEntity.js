@@ -16,11 +16,11 @@ export default function Ecodex({ navigation }) {
             const q = query(PictureCol, where("entity", "==", user_id))
             const querySnapshot = await getDocs(q);
             const localPictures = []
-            // const tempBookingID = []
+       
             // console.log("snapshot:")
             // console.log(querySnapshot)
             querySnapshot.forEach((picture) => {
-                // tempBookingID.push(bookingDoc.id)
+     
                 localPictures.push(picture.data())
             })
             // console.log(localPictures)
@@ -39,6 +39,9 @@ export default function Ecodex({ navigation }) {
         <View style={styles.container}>
             <Text style={styles.name}>
                 {navigation.getParam("name")}
+            </Text>
+            <Text style={styles.description}>
+                {"Type: "+ navigation.getParam("type")}
             </Text>
             <Text style={styles.description}>
                 {navigation.getParam("description")}

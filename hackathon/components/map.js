@@ -11,7 +11,6 @@ const Map = () => {
 
     // Update camera view to current location
     const animate_point = async () => {
-        console.log('called');
         await mapRef.current.animateCamera({
             center: {
                 latitude: currentLocation.latitude,

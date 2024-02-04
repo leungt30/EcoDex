@@ -15,11 +15,10 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     borderRadius: 10,
-    backgroundColor: "#39e75f",
-    justifyContent: "space-between",
+    backgroundColor: "#007f0050",
     alignItems: "center",
+    boxSizing: 'border-box',
     padding: 10,
-    margin: 13
   },
   caption: {
     color: "white",
@@ -29,6 +28,7 @@ const styles = StyleSheet.create({
   thumbnail: {
     width: 120,
     height: 120,
+    borderRadius: 10
   },
 });
 

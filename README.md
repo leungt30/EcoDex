@@ -6,6 +6,7 @@ Prerequisites:
 - npm
 - Expo go mobile app
 
+Steps:
 1. `cd hackathon`
 2. `npm i`
 3. `npm start`

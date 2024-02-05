@@ -63,7 +63,7 @@ const CameraComponent = ({ navigation }) => {
                     "longitude": -79.9183272503029,
                 }
             };
-            console.log(data);
+            // console.log(data);
 
             let docRef = null;
             try {
